@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import Link from 'next/link'
 
 export default function Home() {
   return (
@@ -46,22 +47,24 @@ export default function Home() {
             </p>
           </a>
 
-          <div
-            className="card"
+          <Link
+            href="/posts/first-post"
           >
-            <h3>Пажылой &rarr;</h3>
-            <ol>
-              <li>
-                Черьвяк
-              </li>
-              <li>
-                Дурачок
-              </li>
-              <li>
-                Конь
-              </li>
-            </ol>
-          </div>
+            <div className="card">
+             <h3>Пажылой &rarr;</h3>
+             <ol>
+                <li>
+                  Черьвяк
+                </li>
+                <li>
+                  Дурачок
+                </li>
+                <li>
+                  Конь
+                </li>
+             </ol>
+            </div>
+          </Link>
         </div>
       </main>
 
