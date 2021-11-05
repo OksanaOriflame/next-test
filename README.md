@@ -1,16 +1,22 @@
-This is a starter template for [Learn Next.js](https://nextjs.org/learn).
+Приложение работает на базе [React](https://reactjs.org/) и [Next.js](https://nextjs.org/) (bootstrapped via [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app)).
 
+## Запуск
 
-ЧТО ЭТО ЗНАЧИТ:
+Для запуска требуется [Node.js](https://nodejs.org/en/)
 
-$ git add .
-warning: LF will be replaced by CRLF in .gitignore.
-The file will have its original line endings in your working directory
-warning: LF will be replaced by CRLF in package-lock.json.
-The file will have its original line endings in your working directory
-warning: LF will be replaced by CRLF in package.json.
-The file will have its original line endings in your working directory
-warning: LF will be replaced by CRLF in pages/index.js.
-The file will have its original line endings in your working directory
-warning: LF will be replaced by CRLF in public/vercel.svg.
-The file will have its original line endings in your working directory
+### Разработка
+```
+npm run dev
+```
+С режимом hot-reload
+
+### Запуск линтера
+```
+npm run lint
+```
+
+### Запуск production сервера
+```
+npm run build
+npm run start
+```
