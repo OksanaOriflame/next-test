@@ -5,7 +5,7 @@ type StreetType = {
     streetName: string,
     streetType: string,
     streetLatin: string}
-const STREETS: StreetType[] = require('../../public/sign-suggest-list.json');
+//const STREETS: StreetType[] = require('../../public/sign-suggest-list.json');
 
 const Autocomplete = () => {
     const [isFind, setIsFind] = React.useState(false);
@@ -37,20 +37,33 @@ const Autocomplete = () => {
         }
     }
 
-    const findSuggestions = (event: React.ChangeEvent<HTMLInputElement>) => { //вообще, фильтрация же будет осуществляться на беке, значит тут нужен просто запрос
+    const findSuggestions = async (event: React.ChangeEvent<HTMLInputElement>) => { //вообще, фильтрация же будет осуществляться на беке, значит тут нужен просто запрос
         console.log('тут на')
         setInputVal(undefined); // костыль... (наверное)
         const value: string = event.target.value;
+
+        const maximumSuggestions = 10;
+
         console.log(value);
 
         changePlateLengthSize(value.length);
 
-        let streets = event.target.baseURI
-        console.log(streets)
+        let streets = await (await fetch(event.target.baseURI + `/api/autocomplete?street=${value}&maximumSuggestions=${maximumSuggestions}`)).json();
+        //console.log(event.target.baseURI);
+        //console.log(window.location.href);
+        //console.log(document.URL);
+
+        const newSuggestions = streets.streets.map(s => { const res : StreetType = {
+            streetName: s.street,
+            streetType: s.type,
+            streetLatin: s.english_name}; return res});
+        console.log(newSuggestions);
+        setSuggestions(newSuggestions);
+
+        /*
         const newSuggestions = STREETS.filter(street =>
             street.streetName.toUpperCase().indexOf(value.toUpperCase()) == 0).slice(-5);
-        setSuggestions(newSuggestions);
-        console.log(newSuggestions);
+        setSuggestions(newSuggestions);*/
 
         if (value.length != 0 && newSuggestions.length > 0) {
             setInputPref(value);
