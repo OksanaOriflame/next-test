@@ -17,15 +17,15 @@ var streetItems = itemsjs(data, {
 
 export default function handler(req, res) {
     const beginning = req.query.street
-    const n = req.query.n
+    const maximumDelivery = req.query.maximumDelivery
     var answer = streetItems.search({
         sort: 'street_asc',
-        per_page: n,
+        per_page: maximumDelivery,
         filter: function(item) {
             return item.street.slice(0, beginning.length).toLowerCase() === beginning.toLowerCase() ;
           }
     })
-    res.status(200).json({ 
+    res.status(200).json({
         streets: answer.data.items
     })
   }
