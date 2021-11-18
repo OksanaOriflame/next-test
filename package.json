@@ -10,11 +10,12 @@
   },
   "dependencies": {
     "itemsjs": "^2.1.10",
-    "next": "11.1.2",
-    "react": "17.0.2",
-    "react-dom": "17.0.2"
+    "next": "^12.0.3",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
   },
   "devDependencies": {
+    "@types/react": "^17.0.34",
     "eslint": "7.32.0",
     "eslint-config-next": "11.1.0"
   }
