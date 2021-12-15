@@ -1,3 +1,3 @@
 export default function handler(req, res) {
-    res.status(200).json({ a: process.env.A })
+    res.status(200).json({ a: "process.env.A" })
 }
