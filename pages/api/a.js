@@ -1,3 +1,3 @@
 export default function handler(req, res) {
-    res.status(200).json({ a: process.env.A })
+    return res.status(200).json({ agaga: process.env.A })
 }
